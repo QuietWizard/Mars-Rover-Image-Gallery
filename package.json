@@ -1,0 +1,30 @@
+{
+  "name": "mars-rover-image-gallery",
+  "version": "0.0.0",
+  "description": "An app that dynamically pulls images based on a selected camera from the NASA Mars Rover archives.",
+  "main": "app.js",
+  "scripts": {
+    "start": "node ./bin/www"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/QuietWizard/Mars-Rover-Image-Gallery.git"
+  },
+  "author": "Michael Foss",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/QuietWizard/Mars-Rover-Image-Gallery/issues"
+  },
+  "homepage": "https://github.com/QuietWizard/Mars-Rover-Image-Gallery#readme",
+  "dependencies": {
+    "body-parser": "~1.15.2",
+    "cookie-parser": "~1.4.3",
+    "ejs": "~2.5.2",
+    "express": "~4.14.0",
+    "morgan": "^1.8.1",
+    "serve-favicon": "~2.3.0"
+  },
+  "devDependencies": {
+    "debug": "~2.2.0"
+  }
+}

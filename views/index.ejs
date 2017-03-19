@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html ng-app="nasaImageGallery">
+    <head>
+        <title>Nasa Image Gallery</title>
+        
+        <!-- CSS Libraries -->
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+        <link href="./stylesheets/style.css" rel="stylesheet">
+    </head>
+    <body ng-controller="nasaImages">
+        <!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="/">Nasa Images From the Mars Rover</a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Main jumbotron for Search Input & Options -->
+        <div class="jumbotron">
+            <div class="container text-center">
+                <h1>Choose the Rover Camera to View:</h1>
+                <select ng-model="selectedCamera" ng-options="item.id as item.name for item in filterCameras" ng-change="chooseCamera()"></select>
+                <!--<p>Selected id: {{selectedCamera}}</p>-->
+                <div class="loading-data"><span ng-show='loadingData'>Loading data...</span></div>
+            </div><!-- /container -->
+        </div><!-- /jumbotron -->
+
+        <!-- List of Movie Results -->
+        <div class="container">
+            <div class="row" infinite-scroll="moreData()" infinite-scroll-disabled="loadingData" infinite-scroll-distance="1">
+                <!-- Filtered Template Repeat -->
+                <div ng-repeat="image in data">
+                    <div class="col-lg-3 col-md-4 center-block">
+                        <a href="{{image.img_src}}" target="_blank"><img ng-src="{{image.img_src}}" class="img-responsive"></a>
+                    </div>
+                </div>
+            </div> <!-- /row -->
+        </div> <!-- /container -->
+
+        <div class="footer-padding clearfix"></div>
+
+        <footer>
+            <div class="container">
+                <p class="text-muted text-center">&copy; Michael Foss 2017</p>
+            </div><!-- /container -->
+        </footer><!-- /footer -->
+        
+        <!-- Javascript Libraries -->
+        <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.11/angular.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/ngInfiniteScroll/1.3.0/ng-infinite-scroll.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.11/angular-resource.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.11/angular-sanitize.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script src="/javascripts/angularApp.js"></script>
+    </body>
+</html>
